@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    
+    <style>*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        scroll-behavior: smooth;
+      }
+      
+      /* Custom Scroll Bar CSS */
+      ::-webkit-scrollbar {
+          width: 15px;
+      }
+      ::-webkit-scrollbar-track {
+          background: #fff1a3;
+      }
+      ::-webkit-scrollbar-thumb {
+          background: #53ff4a;
+          border-radius: 13px;
+          transition: all 0.3s ease;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+          background: #53ff4a;
+      }
+      /* navbar styling */
+      nav{
+        position: fixed;
+        width: 100%;
+        padding: 23px 0;
+        z-index: 998;
+        transition: all 0.3s ease;
+        font-family: 'Ubuntu', sans-serif;
+      }
+      nav.sticky{
+        background: #ff05b8;
+        padding: 15px 0;
+      }
+      nav .navbar{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+      }
+      nav .navbar .logo a{
+        font-weight: 530;
+        font-size: 40px;
+        color: #ff05b8;
+      }
+      nav.sticky .navbar .logo a{
+        color: #6f01ff;
+      }
+      nav .navbar .menu{
+        display: flex;
+        position: relative;
+      }
+      nav .navbar .menu li{
+        list-style: none;
+        margin: 0 9px;
+      }
+      .navbar .menu a{
+        font-size: 20px;
+        font-weight: 540;
+        color: #000000;
+        padding: 7px 0;
+        transition: all 0.4s ease;
+      }
+      .navbar .menu a:hover{
+        color: #ff05b8;
+      }
+      nav.sticky .menu a{
+        color: #00ffea;
+      }
+      nav.sticky .menu a:hover{
+        color: #000000;
+      }
+      .navbar .media-icons a{
+        color: #ff05b8;
+        font-size: 20px;
+        margin: 0 7px;
+      }
+      nav.sticky .media-icons a{
+        color: #00ffea;
+      }
+      
+      /* Side Navigation Menu Button CSS */
+      nav .menu-btn,
+      .navbar .menu .cancel-btn{
+        position: absolute;
+        color: #000000;
+        right: 35px;
+        top: 23px;
+        font-size: 23px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: none;
+      }
+      nav .menu-btn{
+        color: #ff05b8;
+      }
+      nav.sticky .menu-btn{
+        color: #00ffea;
+      }
+      .navbar .menu .menu-btn{
+        color: #000000;
+      }
+      
+      /* home section styling */
+      .home{
+        background:#000000;
+      }
+      .home{
+        height: 100vh;
+        width: 100%;
+        background: url("img/parkavi1.png") no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: 'Ubuntu', sans-serif;
+      }
+      .home .home-content{
+        width: 90%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .home .text-one{
+        font-size: 25px;
+        color: #000000;
+      }
+      .home .text-two{
+        color: #000000;
+        font-size: 75px;
+        font-weight: 600;
+        margin-left: -3px;
+      }
+      .home .text-three{
+        font-size: 45px;
+        margin: 6px 0;
+        color: #ff05b8;
+      }
+      .home .text-four{
+        font-size: 25px;
+        margin: 6px 0;
+        color: #000000;
+      }
+      .home .button{
+        margin: 15px 0;
+      }
+      .home .button button{
+        outline: none;
+        padding: 9px 18px;
+        border-radius: 7px;
+        font-size: 28px;
+        font-weight: 450;
+        background: #ff05b8;
+        color: #000000;
+        cursor: pointer;
+        border: 4px solid transparent;
+        transition: all 0.4s ease;
+      }
+      .home .button button:hover{
+        border-color: #ff05b8;
+        background-color: #000000;
+        color: #ff05b8;
+      }
+      
+      /* About Section Styling */
+      /* Those Elements Where We Have Apply Same CSS,
+       I'm Selecting Directly 'Section Tag' and 'Class'  */
+       .about{
+        background:#ffffff;
+       }
+       section{
+        padding-top: 42px;
+      }
+      section .content{
+        width: 80%;
+        margin: 42px auto;
+        font-family: 'Poppins', sans-serif;
+      }
+      .about .about-details{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      section .title{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 42px;
+      }
+      section .title span{
+        color: #000000;
+        font-size: 33px;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 9px;
+      }
+      section .title span::before,
+      section .title span::after{
+        content: '';
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background: #ff05b8;
+        left: 0;
+        bottom: 0;
+      }
+      section .title span::after{
+        bottom: -7px;
+        width: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .about .about-details .left{
+        width: 45%;
+      }
+      .about .left img{
+        height: 520px;
+        width: 430px;
+        object-fit: cover;
+        border-radius: 14px;
+      }
+      .about-details .right{
+        width: 55%;
+      }
+      section  .topic{
+        color: #eaff00;
+        font-size: 27px;
+        font-weight: 510;
+        margin-bottom: 11px;
+      }
+      .about-details .right p{
+        text-align: justify;
+        color: #000000;
+      }
+      section .button{
+        margin: 16px 0;
+      }
+      section .button button{
+        outline: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: 430;
+        background: #ff05b8;
+        color: #000000;
+        border: 3px solid transparent;
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+      section .button button:hover{
+        border-color: #ff05b8;
+        background-color: #fbff07;
+        color: #ff05b8;
+      }
+      
+       /* My Skills CSS */
+       .skills{
+         background:#ffffff;
+       }
+       .skills .content{
+         padding: 43px 0;
+       }
+       .skills .skills-details{
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+       }
+       .skills-details .text{
+         width: 50%;
+       }
+       .skills-details p{
+         color: #000000;
+         text-align: justify;
+       }
+      .skills .skills-details .experience{
+        display: flex;
+        align-items: center;
+        margin: 0 12px;
+      }
+      .skills-details .experience .num{
+        color: #000000;
+        font-size: 85px;
+      }
+      .skills-details .experience .exp{
+        color: #000000;
+        margin-left: 22px;
+        font-size: 19px;
+        font-weight: 510;
+        margin: 0 7px;
+      }
+      .skills-details .boxes{
+        width: 45%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+       }
+       .skills-details .box{
+        width: calc(100% / 2 - 20px);
+        margin: 22px 0;
+       }
+       .skills-details .boxes .topic{
+        font-size: 22px;
+        color: #ff05b8;
+       }
+       .skills-details .boxes .per{
+        font-size: 64px;
+        color: #ff05b8;
+       }
+      
+      /* Education Section Styling */
+      /* Those Elements Where We Have Apply Same CSS,
+       I'm Selecting Directly 'Section Tag' and 'Class'  */
+      
+       .education{
+        background:#ffffff;
+       }
+       section{
+        padding-top: 42px;
+      }
+      section .content{
+        width: 80%;
+        margin: 42px auto;
+        font-family: 'Poppins', sans-serif;
+      }
+      .education .education-details{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      section .title{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 42px;
+      }
+      section .title span{
+        color: #040404;
+        font-size: 33px;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 9px;
+      }
+      section .title span::before,
+      section .title span::after{
+        content: '';
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background: #ff05b8;
+        left: 0;
+        bottom: 0;
+      }
+      section .title span::after{
+        bottom: -7px;
+        width: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .education .education-details .center{
+        width: 45%;
+      }
+      .education-details .center{
+        width: 55%;
+      }
+      section  .topic{
+        color: #000000;
+        font-size: 27px;
+        font-weight: 510;
+        margin-bottom: 11px;
+      }
+      .education-details .center p{
+        text-align: justify;
+        color: #000000;
+      }
+      section .button{
+        margin: 16px 0;
+      }
+      section .button button{
+        outline: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: 430;
+        background: #ff05b8;
+        color: #000000;
+        border: 3px solid transparent;
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+      section .button button:hover{
+        border-color: #ff05b8;
+        background-color: #000000;
+        color: #ff05b8;
+      }
+      
+      /* Strengths Section Styling */
+      .strengths{
+        background:#ffffff;
+      }
+       section{
+        padding-top: 42px;
+      }
+      section .content{
+        width: 80%;
+        margin: 42px auto;
+        font-family: 'Poppins', sans-serif;
+      }
+      .strengths .strengths-details{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      section .title{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 42px;
+      }
+      section .title span{
+        color: #000000;
+        font-size: 33px;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 9px;
+      }
+      section .title span::before,
+      section .title span::after{
+        content: '';
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        background: #ff05b8;
+        left: 0;
+        bottom: 0;
+      }
+      section .title span::after{
+        bottom: -7px;
+        width: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .strengths .strengths-details .center{
+        width: 45%;
+      }
+      .strengths-details .center{
+        width: 55%;
+      }
+      section  .topic{
+        color: #000000;
+        font-size: 27px;
+        font-weight: 510;
+        margin-bottom: 11px;
+      }
+      .strengths-details .center p{
+        text-align: justify;
+        color: #000000;
+      }
+      section .button{
+        margin: 16px 0;
+      }
+      section .button button{
+        outline: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: 430;
+        background: #ff05b8;
+        color: #000000;
+        border: 3px solid transparent;
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+      section .button button:hover{
+        border-color: #ff05b8;
+        background-color: #ffffff;
+        color: #ff05b8;
+      }
+      
+      /* My Services CSS */
+      .services{
+        background:#ffffff;
+      }
+      .services .boxes{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .services .boxes .box{
+        margin: 21px 0;
+        width: calc(100% / 3 - 20px);
+        text-align: center;
+        border-radius: 13px;
+        padding: 32 12px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+        cursor: default;
+        transition: all 0.4s ease;
+      }
+      .services .boxes .box:hover{
+        background: #ff05b8;
+        color: #d9ff05;
+      }
+      .services .boxes .box .icon{
+        height: 50px;
+        width: 50px;
+        background: #ff05b8;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 51px;
+        font-size: 19px;
+        color: #ffffff;
+        margin: 0 auto 10px auto;
+        transition: all 0.4s ease;
+      }
+      .boxes .box:hover .icon{
+        background-color: #ffffff;
+        color: #ff05b8;
+      }
+      .services .boxes .box:hover .topic,
+      .services .boxes .box:hover p{
+        color: #ffffff;
+        transition: all 0.4s ease;
+      }
+      .services .boxes .box:hover .topic,
+      .services .boxes .box:hover p{
+        color: #ffffff;
+      }
+      /* Contact Me CSS */
+      .contact{
+        background: #ffffff;
+      }
+      .contact .content{
+        margin: 0 auto;
+        padding: 28px 0;
+      }
+      .contact .text{
+        width: 80%;
+        text-align: center;
+        margin: auto;
+      }
+      
+      /* Footer CSS */
+      footer{
+        background: #ff05b8;
+        padding: 16px 0;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+      }
+      footer .text span{
+        font-size: 18px;
+        font-weight: 422;
+        color: #fff;
+      }
+      footer .text span a{
+        font-weight: 510;
+        color: #000000;
+      }
+      footer .text span a:hover{
+        text-decoration: underline;
+      }
+      /* Scroll TO Top Button CSS */
+      .scroll-button a{
+        position: fixed;
+        bottom: 22px;
+        right: 22px;
+        color: #fff;
+        background: #ff05b8;
+        padding: 8px 13px;;
+        font-size: 18px;
+        border-radius: 7px;
+        box-shadow: rgb(247, 243, 28);
+        display: none;
+      }
+      
+      /* Responsive Media Query */
+      @media (max-width: 1190px) {
+        section .content{
+          width: 85%;
+        }
+      }
+      @media (max-width: 1000px) {
+        .about .about-details{
+          justify-content: center;
+          flex-direction: column;
+        }
+        .about .about-details .left{
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+        .about-details .right{
+          width: 90%;
+          margin: 42px 0;
+        }
+        .services .boxes .box{
+          margin: 22px 0;
+          width: calc(100% / 2 - 20px);
+        }
+      }
+      @media (max-width: 900px) {
+        .about .left img{
+          height: 360px;
+          width: 360px;
+        }
+      }
+      
+      @media (max-width: 760px) {
+        nav .navbar{
+          width: 90%;
+        }
+        nav .navbar .menu{
+          position: fixed;
+          left: -100%;
+          top: 0;
+          background: #ddff00;
+          height: 100vh;
+          max-width: 410px;
+          width: 100%;
+          padding-top: 63px;
+          flex-direction: column;
+          align-items: center;
+          transition: all 0.5s ease;
+        }
+        .navbar.active .menu{
+          left: 0;
+        }
+        nav .navbar .menu a{
+          font-size: 24px;
+          display: block;
+          color: #fff;
+          margin: 10px 0;
+        }
+        nav.sticky .menu a:hover{
+          color: #ff05b8;
+        }
+        nav .navbar .media-icons{
+          display: none;
+        }
+        nav .menu-btn,
+        .navbar .menu .cancel-btn{
+          display: block;
+        }
+        .home .text-two{
+          font-size: 66px;
+        }
+        .home .text-three{
+          font-size: 36px;
+        }
+        .skills .skills-details{
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+        .skills-details .text{
+          width: 100%;
+          margin-bottom: 51px;
+        }
+        .skills-details .boxes{
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+        }
+        .services .boxes .box{
+          margin: 21px 0;
+          width: 100%;
+        }
+        .contact .text{
+          width: 100%;
+      }
+      }
+      
+      @media (max-width: 510px){
+        .home .text-two{
+          font-size: 56px;
+        }
+        .home .text-three{
+          font-size: 34px;
+        }
+        .skills-details .boxes .per{
+          font-size: 51px;
+          color: #ff05b8;
+        }
+      }</style>
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <!-- Move to up button -->
+    <div class="scroll-button">
+      <a href="#home"><i class="fas fa-arrow-up"></i></a>
+    </div>
+    <!-- navgaition menu -->
+    <nav>
+      <div class="navbar">
+        <div class="logo"><a href="#">Digital Portfolio.</a></div>
+        <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#strengths">Strengths</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <div class="cancel-btn">
+            <i class="fas fa-times"></i>
+          </div>
+        </ul>
+        <div class="media-icons">
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Home Section Start -->
+    <section class="home" id="home">
+      <div class="home-content">
+        <div class="text">
+          <div class="text-one">Hi,</div>
+          <div class="text-two">I'm Parkavi</div>
+          <div class="text-four">From Villupuram</div>
+        </div>
+        <div class="button">
+          <button>Hire Me</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section Start -->
+    <section class="about" id="about">
+      <div class="content">
+        <div class="title"><span>About Me</span></div>
+        <div class="about-details">
+          <div class="left">
+            <img src="img/parkavi.png" alt="" />
+          </div>
+          <div class="right">
+            <p>I am Parkavi A , hailing from the picturesque town of Vakkur. Currently, I am in the final year of my Bachelor of Science (BSc) program in Computer Science at Aringar Anna Government Arts College in Villupuram.
+                Academic Pursuits:
+                Major: Computer Science
+                Passions and Ambitions:
+                My passion lies in the world of books; I'm an avid reader who finds inspiration in the written word. Furthermore, I'm deeply committed to forging a career as a data scientist, where I can harness the power of data to drive insights and innovation.</p>
+            <div class="button">
+              <a href="file:///C:/Users/KAVI/Documents/Parkavi/parkavi%20cv.pdf" target="_blank" class=button>Download CV</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- My Skill Section Start -->
+    <!-- Section Tag and Other Div will same where we need to put same CSS -->
+    <section class="skills" id="skills">
+      <div class="content">
+        <div class="title"><span>My Skills</span></div>
+        <div class="skills-details">
+          <div class="text">
+            <div class="topic">Skills</div>
+            <p>I'm combined expertise in C, C++, Java and Python languages equips you to tackle a wide range of software development projects and demonstrates your commitment to mastering multiple programming paradigms. These skills make you a valuable programmer capable of taking on diverse challenges in the field of computer science.</p>
+            <div class="experience">
+              <div class="num">02</div>
+              <div class="exp">
+                Years Of <br />
+                Experience
+              </div>
+            </div>
+          </div>
+          <div class="boxes">
+            <div class="box">
+              <div class="topic">C</div>
+              <div class="per">79%</div>
+            </div>
+            <div class="box">
+              <div class="topic">C++</div>
+              <div class="per">84%</div>
+            </div>
+            <div class="box">
+              <div class="topic">Java</div>
+              <div class="per">87%</div>
+            </div>
+            <div class="box">
+              <div class="topic">Python</div>
+              <div class="per">90%</div>
+            </div>
+            <div class="box">
+                <div class="topic">COA</div>
+                <div class="per">98%</div>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- My Education Section Start -->
+<section class="education" id="education">
+  <div class="content">
+    <div class="title"><span>Education</span></div>
+    <div class="education-details">
+      <div class="center">
+        <p> Graduation Year: 2024</p>
+
+        <p> Degree: Bachelor of Science in Computer Science
+            Major: Web Development</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- My Strengths Section Start -->
+<section class="strengths" id="strengths">
+   <div class="content">
+   <div class="title"><span>Strengths</span></div>
+   <div class="center">
+      <p>Here are some of my Key Strengths.</p>
+   <div class="strengths-details">
+  <ul>
+      <p>Self Motivated,</p>
+      <p>Hard Working,</p>
+      <p>Creativity,</p>
+      <p>Honest.</p>
+   </div>   
+  </ul>
+   <div>
+      <p> (I am a Honest, Self Motivated and Hard Working girl with positive attitude towards my career and my life)</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+    <!-- My Services Section Start -->
+    <section class="services" id="services">
+      <div class="content">
+        <div class="title"><span>My Services</span></div>
+        <div class="boxes">
+          <div class="box">
+            <div class="icon">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <div class="topic">Web Devlopment</div>
+            <p>It is very important for the customer to pay attention to the adipiscing process. But flexibility rather than hate, who chooses the pleasure?</p>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="topic">Graphic Design</div>
+            <p>It is very important for the customer to pay attention to the adipiscing process. But flexibility rather than hate, who chooses the pleasure?</p>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="topic">Apps Devlopment</div>
+            <p>It is very important for the customer to pay attention to the adipiscing process. But flexibility rather than hate, who chooses the pleasure?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Me section Start -->
+    <section class="contact" id="contact">
+      <div class="content">
+        <div class="title"><span>Contact Me</span></div>
+        <div class="text">
+          <div class="topic">Address:</div>
+          <p>No.2/55, Gangai Amman Kovil Street, Vakkur, Vikkiravandi TK, Villupuram District, Pincode: 605 501</p>
+          <div class="topic">Phone:</div>
+          <p>7603815015</p>
+          <div class="topic">Gmail:</div>
+          <p>parkavia23@gmail.com</p>
+          <div class="button">
+            <button>Let's Chat</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section Start -->
+    <footer>
+      <div class="text">
+        <span>Created By <a href="#">parkavi</a> | &#169; 2023 All Rights Reserved</span>
+      </div>
+      <div class="media-icons">
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </footer>
+
+    <script>let nav = document.querySelector("nav");
+        let scrollBtn = document.querySelector(".scroll-button a");
+        console.log(scrollBtn);
+        let val;
+        window.onscroll = function() {
+          if(document.documentElement.scrollTop > 20){
+            nav.classList.add("sticky");
+            scrollBtn.style.display = "block";
+          }else{
+            nav.classList.remove("sticky");
+            scrollBtn.style.display = "none";
+          }
+        
+        }
+        
+        // Side NavIgation Menu JS Code
+        let body = document.querySelector("body");
+        let navBar = document.querySelector(".navbar");
+        let menuBtn = document.querySelector(".menu-btn");
+        let cancelBtn = document.querySelector(".cancel-btn");
+        menuBtn.onclick = function(){
+          navBar.classList.add("active");
+          menuBtn.style.opacity = "0";
+          menuBtn.style.pointerEvents = "none";
+          body.style.overflow = "hidden";
+          scrollBtn.style.pointerEvents = "none";
+        }
+        cancelBtn.onclick = function(){
+          navBar.classList.remove("active");
+          menuBtn.style.opacity = "1";
+          menuBtn.style.pointerEvents = "auto";
+          body.style.overflow = "auto";
+          scrollBtn.style.pointerEvents = "auto";
+        }
+        
+        // Side Navigation Bar Close While We Click On Navigation Links
+        let navLinks = document.querySelectorAll(".menu li a");
+        for (var i = 0; i < navLinks.length; i++) {
+          navLinks[i].addEventListener("click" , function() {
+            navBar.classList.remove("active");
+            menuBtn.style.opacity = "1";
+            menuBtn.style.pointerEvents = "auto";
+          });
+        }</script>
+  </body>
+</html>
